@@ -13,22 +13,36 @@ available_cuisine_types = ["American", "Asian", "Bristish", "Caribbean", "Centra
 available_dish_types = ["Biscuits and cookies",  "Bread, Cereals",  "Condiments and sauces",  "Dessert", "Drinks", "Main course", "Pancake", "Preps", "Preserve", "Salad", "Sandwiches", "Side dish", "Soups", "Starter", "Sweets"]
 
 
-def start():
+def selection():
     print("\n" + Fore.CYAN + "-===  " + "Welcome to Effective Guacamole!  ===-")
     print("This script will help you choose what to cook based on what's in your fridge.\n" + Fore.RESET)
 
     print("Please choose a meal type :")
     for i in range(len(available_meal_types)):
-        print(' '.join(available_meal_types))
-    # meal_type = input("Your choice : ")
+        print(" [" + str(i) + "] " + ''.join(available_meal_types[i]))
+    meal_type = input("Your choice : ")
 
-    # print("\nPlease choose a cuisine type :")
-    # print("[0] - American, [1] - Asian, [2] - Bristish, [3] - Caribbean, [4] - Central Europe, [5] - Chinese, [6] - Eastern Europe, [7] - French, [8] - Indian, [9] - Italian, [10] - Japanise, [11] - Kosher, [12] - Mediterranean, [13] - Mexican, [14] - Middle Eastern, [15] - Nordic, [16] - South American, [17] - South East Asian")
-    # cuisine_type = input("Your choice : ")
-    # print("\nPlease choose a dish type :")
-    # print("[0] - Biscuits and cookies, [1] - Bread, [2] - Cereals, [3] - Condiments and sauces, [4] - Dessert, [5] - Drinks, [6] - Main course, [7] - Pancake, [8] - Preps, [9] - Preserve, [10] - Salad, [11] - Sandwiches, [12] - Side dish, [13] - Soups, [14] - Starter, [15] - Sweets")
-    # dish_type = input("Your choice : ")
-    # print("\nYou have chosen : " + Fore.CYAN + meal_type + " " + cuisine_type + " " + dish_type + Fore.RESET)
+    print("\nPlease choose a cuisine type :")
+    for i in range(len(available_cuisine_types)):
+        print(" [" + str(i) + "] " + ''.join(available_cuisine_types[i]))
+    cuisine_type = input("Your choice : ")
+
+    print("\nPlease choose a dish type :")
+    for i in range(len(available_dish_types)):
+        print(" [" + str(i) + "] " + ''.join(available_dish_types[i]))
+    dish_type = input("Your choice : ")
+    print("\nYou have chosen : " + Fore.CYAN + available_meal_types[int(meal_type)] + " - " + available_cuisine_types[int(cuisine_type)] + " - " + available_dish_types[int(dish_type)] + Fore.RESET)
+    choice = input("\nConfirm your choice ? (y/n) : ")
+
+    if choice == "y":
+        print("\n" + Fore.CYAN + "Searching..." + Fore.RESET)
+    else:
+        print("\n" + Fore.RED + "Aborting..." + Fore.RESET)
+        exit()
+
+
+def start():
+    selection()
 
 
 start()
